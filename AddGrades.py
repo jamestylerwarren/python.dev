@@ -24,7 +24,7 @@ def calculate_average_mark(student):
 
 
 def print_student_details(student):
-    print('{} - average mark: {}'.format(student['name'],calculate_average_mark(student)))
+    print('{}'\'s average mark: {}'.format(student['name'],calculate_average_mark(student)))
 
 
 def print_students(students):
