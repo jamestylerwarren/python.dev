@@ -24,7 +24,7 @@ def calculate_average_mark(student):
 
 
 def print_student_details(student):
-    print('{}'\'s average mark: {}'.format(student['name'],calculate_average_mark(student)))
+    print('{} - average mark: {}'.format(student['name'],calculate_average_mark(student)))
 
 
 def print_students(students):
@@ -36,7 +36,8 @@ def print_students(students):
 def menu():
     selection = input("Enter 'p' to print student list, "
                       "'s' to add a new student, "
-                      "'a' to add a mark or 'q' to exit: ")
+                      "'a' to add a mark "
+                      "or 'q' to exit: ")
     while selection != 'q':
         if selection == 'p':
             print_students(student_list)
