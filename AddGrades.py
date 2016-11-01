@@ -1,37 +1,36 @@
+
 student_list = []
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+        self.marks = []
+
+    def average_mark(self):
+        number = len(self.marks)
+        if number == 0:
+            return 0
+
+        total = sum(self.marks)
+        return total / number
 
 def create_student():
     name = input('Please enter student name: ')
-    student_data = {
-        'name': name,
-        'marks': []
-    }
+    student_data = Student(name)
     return student_data
 
-
 def add_mark(student, mark):
-    student['marks'].append(mark)
-
-
-
-def calculate_average_mark(student):
-    number = len(student['marks'])
-    if number == 0:
-        return 0
-
-    total = sum(student['marks'])
-    return "{}".format(total/number)
+    student.marks.append(mark)
 
 
 def print_student_details(student):
-    print('{} - average mark: {}'.format(student['name'],calculate_average_mark(student)))
-
+    print('{} - average mark: {}'.format(student.name,
+                                         student.average_mark()))
 
 def print_students(students):
     for i, student in enumerate(students):
         print('ID: {}'.format(i))
         print_student_details(student)
-
 
 def menu():
     selection = input("Enter 'p' to print student list, "
@@ -53,4 +52,3 @@ def menu():
                           "'a' to add a mark or 'q' to exit: ")
 
 menu()
-
