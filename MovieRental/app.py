@@ -6,10 +6,10 @@ from user import User
 user = User("Tyler")
 
 #declare a new Movie and pass needed parameters
-my_movie = Movie("The Matrix", "Sci-Fi")
+my_movie = Movie("The Matrix", "Sci-Fi", True)
 
 #add my_movie defined above to a user we defined above
 user.movies.append(my_movie)
 
 print(user)
-print(user.movies)
+print(user.watched_movies())
