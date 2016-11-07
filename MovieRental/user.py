@@ -34,6 +34,11 @@ class User:
             ]
         }
 
+    def set_watched(self, name):
+        for movie in self.movies:
+            if movie.name == name:
+                movie.watched = True
+
     @classmethod
     def from_json(cls, json_data):
         user = User(json_data['name'])
@@ -42,5 +47,6 @@ class User:
             movies.append(Movie.from_json(movie_data))
         user.movies = movies
         return user
+
 
 
