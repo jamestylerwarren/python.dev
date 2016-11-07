@@ -34,14 +34,15 @@ class User:
             for movie in self.movies:
                 f.write("{},{},{}\n".format(movie.name, movie.genre, str(movie.watched)))
 
-    def load_from_file(self, filename)
+    @classmethod
+    def load_from_file(cls, filename): #cls runs on class itself, not the object
         with open(filename, "r") as f:
-            content = f.readline()
+            content = f.readlines()
             username = content[0]
             movies = []
-            for line in content:
-                movie_data = line.split(",")
-                movies.append(Movie(movie_data[0], movie_date[1], movie_data[2] == "True"))
-            user = User(username)
+            for line in content[1:]: #starts iterating on element 1 (not 0, which is username) and finishes at the end
+                movie_data = line.split(",") #['name', 'genre', 'watched']
+                movies.append(Movie(movie_data[0], movie_data[1], movie_data[2] == "True"))
+            user = cls(username) #change User to cls
             user.movies = movies
             return user

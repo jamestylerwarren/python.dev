@@ -2,10 +2,8 @@
 from movie import Movie
 from user import User
 
-#creating a new user
-user = User("Tyler")
+user = User.load_from_file('Tyler.txt')
 
-user.add_movie("The Matrix", "Sci-Fi")
-user.add_movie("The Interview", "Comedy")
+print(user.name)
 
-user.save_to_file()
+print(user.movies)
