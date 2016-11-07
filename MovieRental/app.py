@@ -1,9 +1,14 @@
 #from movie.py and user.py import the classes
 from movie import Movie
 from user import User
+import json
 
-user = User.load_from_file('Tyler.txt')
+user = User('Tyler')
 
-print(user.name)
+user.add_movie("The Matrix", "Sci-Fi")
+user.add_movie("The Interview", "Comedy")
 
-print(user.movies)
+print(user.json())
+
+with open('my_file.txt', 'w') as f:
+    json.dump(user.json(), f)
